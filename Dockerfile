@@ -4,7 +4,8 @@ WORKDIR /src/
 COPY . /src/
 RUN make build
 
-FROM scratch
+FROM alpine
+RUN apk --no-cache add libc6-compat
 COPY --from=build /src/target/openldap_exporter-linux /openldap_exporter
 EXPOSE 9330
 ENTRYPOINT ["/openldap_exporter"]
