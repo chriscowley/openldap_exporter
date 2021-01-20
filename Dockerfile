@@ -1,4 +1,4 @@
-FROM docker.io/golang:1.15 AS build
+FROM quay.io/bitnami/golang:1.15 AS build
 #RUN apk --no-cache add make
 WORKDIR /src/
 COPY . /src/
